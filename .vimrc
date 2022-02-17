@@ -130,8 +130,9 @@ let g:netrw_list_hide.=',\(^\|\s\s)\zs\.\S\+' " no idea what this does, got it f
 
 
 " the tab space is too long, change it to 4 space
-set tabstop=4
+set tabstop=8
 set shiftwidth=4
+set softtabstop=4
 set autoindent
 filetype indent on
 
@@ -177,20 +178,23 @@ let g:ycm_auto_trigger = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 
 " add some fast copy paste hotkey
-vnoremap wy "gy 
-nnoremap ,p "gp
-vnoremap wd "gd
+vnoremap [y "gy 
+nnoremap [p "gp
+vnoremap [d "gd
+
+" add some convinient hot key
+imap <c-u> <ESC>bveUea
 
 " add some git related command
 nnoremap ,gau :Git add -u<CR>
 nnoremap ,gc :Git commit<CR>
 nnoremap ,gp :Git push<CR>
 
+
 " SNIPPETS:
 " Read an empty HTML tempplate and move cursor to title
 " nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
 autocmd FileType ocaml nnoremap ,des :MerlinDestruct<CR>
-
 
 " TIPS:
 " ,gf -> open the file that's currently under the cursor
@@ -198,7 +202,7 @@ autocmd FileType ocaml nnoremap ,des :MerlinDestruct<CR>
 " <ctr> b -> move up an entire page
 " <ctr> u -> move cursor & up half a page
 " <ctr> d -> move cursor & down half a page
-
+    
 
 
 
