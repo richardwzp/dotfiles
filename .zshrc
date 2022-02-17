@@ -9,7 +9,7 @@ fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-alias sandman-azure="ssh -i ~/.ssh/richardkey.pem wzprichardwzp@20.124.13.35"
+alias sandman_azure="ssh -i ~/.ssh/richardkey.pem wzprichardwzp@20.124.13.35"
 
 
 # Path to your oh-my-zsh installation.
