@@ -146,8 +146,20 @@ Plug 'junegunn/seoul256.vim'
 Plug 'tmsvg/pear-tree'
 Plug 'ycm-core/YouCompleteMe'
 Plug 'tpope/vim-fugitive'
+Plug 'preservim/tagbar'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
+
+" youCompleteMe settings
+let g:ycm_auto_trigger = 1
+let g:ycm_auto_hover = 1
+
+" change the tagbar width to be slightly smaller
+let g:tagbar_width = max([25, winwidth(0) / 5])
+let g:tagbar_show_data_type = 1
+" close preview automatically
+let g:tarbar_autopreview = 1
+let g:tagbar_wrap = 1
 
 " pear tree enabled useful functionality
 " Pear Tree is enabled for all filetypes by default:
@@ -190,11 +202,16 @@ nnoremap ,gau :Git add -u<CR>
 nnoremap ,gc :Git commit<CR>
 nnoremap ,gp :Git push<CR>
 
+" add TagToggle mapping
+nmap \] :TagbarToggle<CR>
 
 " SNIPPETS:
 " Read an empty HTML tempplate and move cursor to title
 " nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
 autocmd FileType ocaml nnoremap ,des :MerlinDestruct<CR>
+
+" change color option for autocomplete
+highlight Pmenu guibg=blue gui=bold
 
 " TIPS:
 " ,gf -> open the file that's currently under the cursor
@@ -202,7 +219,9 @@ autocmd FileType ocaml nnoremap ,des :MerlinDestruct<CR>
 " <ctr> b -> move up an entire page
 " <ctr> u -> move cursor & up half a page
 " <ctr> d -> move cursor & down half a page
-    
 
+" user config
+highlight Pmenu ctermbg=blue guibg=gray
+set splitbelow
 
 

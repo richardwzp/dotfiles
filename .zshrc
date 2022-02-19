@@ -22,6 +22,7 @@ export ZSH="/Users/wzp/.oh-my-zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 # add theme sepecifif config
 
+
 #ZSH_THEME="afowler"
 
 
@@ -92,6 +93,8 @@ plugins=(git
 
 source $ZSH/oh-my-zsh.sh
 
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=4'
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -120,7 +123,9 @@ source $ZSH/oh-my-zsh.sh
 alias neulogin="ssh wzprichardwzp@login.ccs.neu.edu"
 alias warheadlogin="ssh warhead"
 source /Users/wzp/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-export PATH="/usr/local/opt/python@3.9/bin:$PATH"
+# export PATH="/usr/local/opt/python@3.9/bin:$PATH"
+# make sure python can be found 
+export PATH="/usr/local/opt/python@3.10/bin:$PATH"
 # oh-my-zsh agnoster theme, change user
 
 # add alacritty shorcut
