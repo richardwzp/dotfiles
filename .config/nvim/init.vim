@@ -144,13 +144,16 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 Plug 'junegunn/seoul256.vim'
 Plug 'tmsvg/pear-tree'
-Plug 'ycm-core/YouCompleteMe'
 Plug 'tpope/vim-fugitive'
-Plug 'preservim/tagbar'
+Plug 'simrat39/symbols-outline.nvim'
+Plug 'mfussenegger/nvim-jdtls'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'mhartington/oceanic-next'
+Plug 'kyazdani42/nvim-web-devicons' " for file icons
+Plug 'kyazdani42/nvim-tree.lua'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
-" tagbar setting
-let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
+" symbols-outline setting
 
 " youCompleteMe settings
 let g:ycm_auto_trigger = 1
@@ -199,16 +202,15 @@ nnoremap ,gau :Git add -u<CR>
 nnoremap ,gc :Git commit<CR>
 nnoremap ,gp :Git push<CR>
 
-" add TagToggle mapping
-nmap \] :TagbarToggle<CR>
-
+" add outline mapping
+nmap \] :SymbolsOutline<CR>
+" add file open
+nmap \[ :NvimTreeToggle<CR>
+imap  <c-\> <ESC>lF>vF<yl$pF<a/<Space><Esc>F>a
 " SNIPPETS:
 " Read an empty HTML tempplate and move cursor to title
-" nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
+autocmd FileType html nnoremap ,html :-1read $HOME/.local/share/nvim/.skeleton.html<CR>3jwf>a
 autocmd FileType ocaml nnoremap ,des :MerlinDestruct<CR>
-
-" change color option for autocomplete
-highlight Pmenu guibg=blue gui=bold
 
 " merlin set up
 :set rtp+=~/.opam/4.13.1/share/merlin/vim
@@ -222,8 +224,35 @@ let g:syntastic_ocaml_checkers=['merlin']
 " <ctr> u -> move cursor & up half a page
 " <ctr> d -> move cursor & down half a page
 
-" user config
-highlight Pmenu ctermbg=blue guibg=gray
+
 set splitbelow
 
+" neovim config for lsp servers
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+" set theme
+set termguicolors
+colorscheme OceanicNext
+highlight Pmenu ctermbg=4
+
+lua require'nvim-tree'.setup {}
 
