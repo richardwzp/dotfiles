@@ -1,0 +1,9 @@
+*
+!.gitignore
+!.vimrc
+!.config*
+!.zshrc
+!.p10k.zsh
+!.config/alacritty/alacritty.yml
+!.config/nvim/init.vim
+!.config/nvim/outline_config.lua
