@@ -148,6 +148,7 @@ Plug 'mhartington/oceanic-next'
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'ldelossa/litee.nvim'
+Plug 'cseelus/vim-colors-lucid'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -196,7 +197,7 @@ nnoremap ,gc :Git commit<CR>
 nnoremap ,gp :Git push<CR>
 
 " add outline mapping
-nmap \] :SymbolsOutline<CR>
+nmap \] :CocOutline<CR>
 " add file open
 nmap \[ :NvimTreeToggle<CR>
 imap  <c-\> <ESC>lF>vF<yl$pF<a/<Space><Esc>F>a
@@ -408,3 +409,5 @@ if (has("termguicolors"))
 endif
 
 
+" file specific colors
+" autocmd FileType python colorscheme lucid

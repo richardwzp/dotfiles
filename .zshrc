@@ -152,3 +152,9 @@ alias l="colorls -al"
 # configure java 
 export JAVA_HOME=$HOME/Library/Java/JavaVirtualMachines/adopt-openjdk-14.0.2/Contents/Home
 export PATH=$PATH:$HOME/.local/bin
+export PATH="/usr/local/opt/llvm/bin:$PATH"
+
+# llvm compiler flag
+export LDFLAGS="-L/usr/local/opt/llvm/lib"
+export CPPFLAGS="-I/usr/local/opt/llvm/include"
+
