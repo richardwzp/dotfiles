@@ -5,5 +5,7 @@
 !.zshrc
 !.p10k.zsh
 !.config/alacritty/alacritty.yml
-!.config/nvim/init.vim
-!.config/nvim/outline_config.lua
+!.config/nvim/*.vim
+!.config/nvim/lua/*
+!.config/nvim/lua/
+!.config/nvim/lua/peartree-config.lua

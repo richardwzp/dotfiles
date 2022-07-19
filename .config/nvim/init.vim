@@ -166,5 +166,45 @@ set updatetime=300
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
 
+map \w :bdel<CR>
+
+" add some fast copy paste hotkey
+vnoremap [y "gy 
+nnoremap [p "gp
+vnoremap [d "gd
+
+" make word into all cap
+imap <c-u> <ESC>bveUea
+
+" add some convinient hot key
+" add fast window switch 
+map <c-h> <c-w>h
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+
+" easier exit for terminal 
+:tnoremap <Esc> <C-\><C-n>
+
+" terrible html like tag closing
+imap  <c-\> <ESC>lF>vF<yl$pF<a/<Space><Esc>F>a
+
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+if has("nvim-0.5.0") || has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
+
+
+set termguicolors
+" Or if you have Neovim >= 0.1.5
+if (has("termguicolors"))
+ set termguicolors
+endif
+
+
 " call plugin related file
 source $HOME/.config/nvim/plugs.vim

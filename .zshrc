@@ -13,7 +13,7 @@ alias sandman_azure="ssh -i ~/.ssh/richardkey.pem wzprichardwzp@20.124.13.35"
 
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/wzp/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -122,7 +122,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=4'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias neulogin="ssh wzprichardwzp@login.ccs.neu.edu"
 alias warheadlogin="ssh warhead"
-source /Users/wzp/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # export PATH="/usr/local/opt/python@3.9/bin:$PATH"
 # make sure python can be found 
 export PATH="/usr/local/opt/python@3.10/bin:$PATH"
@@ -144,7 +144,7 @@ alias l="colorls -al"
 # compiler stuff
 
 # opam configuration
-[[ ! -r /Users/wzp/.opam/opam-init/init.zsh ]] || source /Users/wzp/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+[[ ! -r $HOME/.opam/opam-init/init.zsh ]] || source $HOME/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -157,4 +157,7 @@ export PATH="/usr/local/opt/llvm/bin:$PATH"
 # llvm compiler flag
 export LDFLAGS="-L/usr/local/opt/llvm/lib"
 export CPPFLAGS="-I/usr/local/opt/llvm/include"
+
+# nvim setting
+export NVIM_FOLDER="$HOME/.config/nvim/"
 
