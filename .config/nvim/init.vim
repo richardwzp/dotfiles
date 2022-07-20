@@ -166,7 +166,6 @@ set updatetime=300
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
 
-map \w :bdel<CR>
 
 " add some fast copy paste hotkey
 vnoremap [y "gy 

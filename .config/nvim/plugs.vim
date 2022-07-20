@@ -53,6 +53,7 @@ EOF
 " trying to set bufferline shortcut
 nnoremap <silent>[o :BufferLineCycleNext<CR>
 nnoremap <silent>[b :BufferLineCyclePrev<CR>
+map [w :bdel<CR>
 
 " nvim terminal
 nmap \= :ToggleTerm<Cr>
