@@ -9,6 +9,9 @@ fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# this is added in anticipation for m2 mac, so homebrew install can be found
+export PATH="/opt/homebrew/bin:${PATH}"
+
 alias sandman_azure="ssh -i ~/.ssh/richardkey.pem wzprichardwzp@20.124.13.35"
 
 
