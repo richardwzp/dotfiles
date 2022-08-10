@@ -7,3 +7,4 @@ brew install ripgrep
 brew install fd
 
 brew install jesseduffield/lazygit/lazygit
+brew install yarn

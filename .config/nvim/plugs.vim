@@ -45,6 +45,7 @@ require('litee.lib').setup({
 require('lualine').setup()
 require("toggleterm").setup{}
 require('bufferline-config')
+require('plugins')
 EOF
 
 

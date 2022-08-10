@@ -172,18 +172,6 @@ vnoremap [y "gy
 nnoremap [p "gp
 vnoremap [d "gd
 
-" make word into all cap
-imap <c-u> <ESC>bveUea
-
-" add some convinient hot key
-" add fast window switch 
-map <c-h> <c-w>h
-map <c-j> <c-w>j
-map <c-k> <c-w>k
-map <c-l> <c-w>l
-
-" easier exit for terminal 
-:tnoremap <Esc> <C-\><C-n>
 
 " terrible html like tag closing
 imap  <c-\> <ESC>lF>vF<yl$pF<a/<Space><Esc>F>a
@@ -204,6 +192,10 @@ if (has("termguicolors"))
  set termguicolors
 endif
 
+" initialize with lua
+
+lua require('user.nvim-options')
+lua require('user.default-keymaps')
 
 " call plugin related file
 source $HOME/.config/nvim/plugs.vim

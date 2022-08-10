@@ -128,12 +128,12 @@ source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export PATH="/usr/local/opt/python@3.10/bin:$PATH"
 # oh-my-zsh agnoster theme, change user
 
-# add alacritty shorcut
-alias wind="alacritty msg create-window"
-
 # spotify plugin
 alias splay="spotify play"
 alias spause="spotify pause"
+
+# alacritty window
+alias awind="alacritty msg create-window"
 
 # colorls, a ruby script for replacing ls
 if [ -x "$(command -v colorls)" ]; then
