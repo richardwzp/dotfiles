@@ -11,6 +11,7 @@ fi
 
 # this is added in anticipation for m2 mac, so homebrew install can be found
 export PATH="/opt/homebrew/bin:${PATH}"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 alias sandman_azure="ssh -i ~/.ssh/richardkey.pem wzprichardwzp@20.124.13.35"
 
@@ -88,15 +89,22 @@ HYPHEN_INSENSITIVE="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git 
-		 git-extras
-	     common-aliases
-	     pyenv
-	     macos
-	 	 colored-man-pages)
+	 git-extras
+	 common-aliases
+	 pyenv
+	 macos
+	 kubectl
+	 colored-man-pages)
 
 source $ZSH/oh-my-zsh.sh
 
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=4'
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+# ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=4'
+# ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
+
+
+# an option from exa, installed with cargo. This replace ls
+alias ls="exa --icons"
 
 # User configuration
 
@@ -138,12 +146,6 @@ alias spause="spotify pause"
 # alacritty window
 alias awind="alacritty msg create-window"
 
-# colorls, a ruby script for replacing ls
-if [ -x "$(command -v colorls)" ]; then
-    alias ls="colorls"
-    alias la="colorls -al"
-fi
-alias l="colorls -al" 
 # compiler stuff
 
 # opam configuration
@@ -158,8 +160,13 @@ export PATH=$PATH:$HOME/.local/bin
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 
 # llvm compiler flag
-export LDFLAGS="-L/usr/local/opt/llvm/lib"
-export CPPFLAGS="-I/usr/local/opt/llvm/include"
+# export LDFLAGS="-L/usr/local/opt/llvm/lib"
+# export CPPFLAGS="-I/usr/local/opt/llvm/include"
+# this is for postgres database driver
+export LDFLAGS="-L/opt/homebrew/opt/openssl@1.1/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/openssl@1.1/include"
+
+
 
 # nvim setting
 export NVIM_FOLDER="$HOME/.config/nvim/"
@@ -168,3 +175,11 @@ export NVIM_FOLDER="$HOME/.config/nvim/"
 dot () {
   git --git-dir="$HOME/.dotfiles" --work-tree="$HOME" "$@"
 }
+
+
+# to avoi dconflict with zsh alias
+alias fnd='\fd'
+
+# doom-emacs related stuff
+PATH="~/.emacs.d/bin:$PATH"
+export JAVA_HOME=$(/usr/libexec/java_home)

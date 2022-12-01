@@ -32,7 +32,7 @@ return require('packer').startup(function()
     end,
     }
 
-  use 'romainl/vim-cool'
+--  use 'romainl/vim-cool' --
 
 --[==[  use {
     {

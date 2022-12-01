@@ -130,9 +130,10 @@ let g:netrw_list_hide.=',\(^\|\s\s)\zs\.\S\+' " no idea what this does, got it f
 
 
 " the tab space is too long, change it to 4 space
-set tabstop=8
-set shiftwidth=4
-set softtabstop=4
+set expandtab
+set tabstop=4
+set shiftwidth=2
+set softtabstop=2
 set autoindent
 filetype indent on
 
@@ -192,6 +193,7 @@ if (has("termguicolors"))
  set termguicolors
 endif
 
+
 " initialize with lua
 
 lua require('user.nvim-options')
@@ -199,3 +201,6 @@ lua require('user.default-keymaps')
 
 " call plugin related file
 source $HOME/.config/nvim/plugs.vim
+
+autocmd BufNewFile,BufRead *.tpl   set syntax=helm
+

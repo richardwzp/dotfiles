@@ -76,6 +76,7 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-treesitter/nvim-tree-docs"
   },
   ["nvim-treesitter"] = {
+    config = { "\27LJ\2\n»\1\0\0\b\0\14\0\0176\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\f\0005\3\3\0005\4\t\0005\5\a\0005\6\5\0005\a\4\0=\a\6\6=\6\b\5=\5\n\4=\4\v\3=\3\r\2B\0\2\1K\0\1\0\14tree_docs\1\0\0\16spec_config\njsdoc\1\0\0\nslots\1\0\0\nclass\1\0\0\1\0\1\vauthor\2\1\0\1\venable\2\nsetup\28nvim-treesitter.configs\frequire\0" },
     loaded = true,
     path = "/Users/wzp/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
@@ -94,11 +95,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/wzp/.local/share/nvim/site/pack/packer/start/promise-async",
     url = "https://github.com/kevinhwang91/promise-async"
-  },
-  ["vim-cool"] = {
-    loaded = true,
-    path = "/Users/wzp/.local/share/nvim/site/pack/packer/start/vim-cool",
-    url = "https://github.com/romainl/vim-cool"
   }
 }
 
@@ -107,6 +103,10 @@ time([[Defining packer_plugins]], false)
 time([[Config for nvim-tree-docs]], true)
 try_loadstring("\27LJ\2\n»\1\0\0\b\0\14\0\0176\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\f\0005\3\3\0005\4\t\0005\5\a\0005\6\5\0005\a\4\0=\a\6\6=\6\b\5=\5\n\4=\4\v\3=\3\r\2B\0\2\1K\0\1\0\14tree_docs\1\0\0\16spec_config\njsdoc\1\0\0\nslots\1\0\0\nclass\1\0\0\1\0\1\vauthor\2\1\0\1\venable\2\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-tree-docs")
 time([[Config for nvim-tree-docs]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+try_loadstring("\27LJ\2\n»\1\0\0\b\0\14\0\0176\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\f\0005\3\3\0005\4\t\0005\5\a\0005\6\5\0005\a\4\0=\a\6\6=\6\b\5=\5\n\4=\4\v\3=\3\r\2B\0\2\1K\0\1\0\14tree_docs\1\0\0\16spec_config\njsdoc\1\0\0\nslots\1\0\0\nclass\1\0\0\1\0\1\vauthor\2\1\0\1\venable\2\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter")
+time([[Config for nvim-treesitter]], false)
 if should_profile then save_profiles() end
 
 end)

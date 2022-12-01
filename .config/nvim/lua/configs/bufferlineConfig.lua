@@ -1,2 +1,12 @@
 
-require("bufferline").setup {}
+require("bufferline").setup {
+config = {
+  options = {
+    indicator = {
+      style = 'icon',
+      icon = '|',
+    }
+  }
+}
+
+}
