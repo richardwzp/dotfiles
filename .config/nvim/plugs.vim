@@ -31,7 +31,6 @@ call plug#end()
 source $HOME/.config/nvim/lua/peartree-config.vim
 source $HOME/.config/nvim/lua/vim-fugative-config.vim
 source $HOME/.config/nvim/lua/nvimTree-config.vim
-source $HOME/.config/nvim/lua/coc-nvim-config.vim
 source $HOME/.config/nvim/lua/vista.vim
 
 lua require'nvim-tree'.setup {}
@@ -49,6 +48,8 @@ require('litee.lib').setup({
 require('lualine').setup()
 require("toggleterm").setup{}
 require('bufferline-config')
+require('coc-nvim-config')
+require('pear_tree')
 require('plugins')
 EOF
 

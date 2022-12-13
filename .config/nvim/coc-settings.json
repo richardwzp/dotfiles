@@ -1,4 +1,6 @@
-{"languageserver": {
+{
+  "coc.preferences.noselect": true,
+  "languageserver": {
   "ocaml-lsp": {
     "command": "opam",
     "args": ["config", "exec", "--", "ocamllsp"],
