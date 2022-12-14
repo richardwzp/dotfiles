@@ -27,7 +27,7 @@ lvim.builtin.terminal.size =
   end
 lvim.builtin.terminal.direction = 'horizontal'
 -- symbols-outline
--- map('n', "<leader>]", ":SymbolsOutline<CR>", opt)
+map('n', "<leader>]", ":SymbolsOutline<CR>", opt)
 
 -- require('config.lua-line').setup()
 require('config.lua-line')
