@@ -6,8 +6,10 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 # install homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 echo '# Set PATH, MANPATH, etc., for Homebrew.' >> $HOME/.zprofile
+
 # need to run some custom homebrew things
-exit 1
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # zsh syntaxhighlighting
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
@@ -46,6 +48,13 @@ brew install yq
 brew install jq
 brew install node
 brew install yarn
+brew install tmux
+
+# currently using tmux plugin
+# git clone git@github.com:richardwzp/tmux-sensible.git
+
+# need to install make
+LV_BRANCH='release-1.2/neovim-0.8' bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
 
 
 

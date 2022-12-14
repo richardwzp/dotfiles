@@ -1,9 +1,30 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
 
 -- Only required if you have packer configured as `opt`
-vim.cmd [[packadd packer.nvim]]
+-- vim.cmd [[packadd packer.nvim]]
 
-return require('packer').startup(function()
+vim.cmd([[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+  augroup end
+]])
+
+local ensure_packer = function()
+  local fn = vim.fn
+  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  if fn.empty(fn.glob(install_path)) > 0 then
+    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    vim.cmd [[packadd packer.nvim]]
+    return true
+  end
+  return false
+end
+
+local packer_bootstrap = ensure_packer()
+
+
+return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
@@ -32,40 +53,20 @@ return require('packer').startup(function()
     end,
     }
 
---  use 'romainl/vim-cool' --
-
---[==[  use {
-    {
-      'nvim-telescope/telescope.nvim',
-      requires = {
-        'nvim-lua/popup.nvim',
-        'nvim-lua/plenary.nvim',
-        'telescope-frecency.nvim',
-        'telescope-fzf-native.nvim',
-        'nvim-telescope/telescope-ui-select.nvim',
+-- Configurations for Nvim LSP
+    use { 'neovim/nvim-lspconfig',
+    disable = true,
+    requires = {
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-cmdline',
+      'hrsh7th/nvim-cmp'
       },
-      wants = {
-        'popup.nvim',
-        'plenary.nvim',
-        'telescope-frecency.nvim',
-        'telescope-fzf-native.nvim',
-      },
-      setup = [[require('config.telescope_setup')]],
-      config = [[require('config.telescope')]],
-      cmd = 'Telescope',
-      module = 'telescope',
-    },
-    {
-      'nvim-telescope/telescope-frecency.nvim',
-      after = 'telescope.nvim',
-      requires = 'tami5/sqlite.lua',
-    },
-    {
-      'nvim-telescope/telescope-fzf-native.nvim',
-      run = 'make',
-    },
-  } ]==]--
-
+    config = function ()
+      require("lsp_config.nvim_lsp")
+    end,
+    }
 
 
 end)

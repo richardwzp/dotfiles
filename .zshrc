@@ -105,6 +105,7 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 # an option from exa, installed with cargo. This replace ls
 alias ls="exa --icons"
+alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # User configuration
 

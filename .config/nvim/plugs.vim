@@ -5,7 +5,7 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 " Declare the list of plugins.
 Plug 'tmsvg/pear-tree'
 Plug 'tpope/vim-fugitive'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'on': []} 
 Plug 'mhartington/oceanic-next'
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'kyazdani42/nvim-tree.lua'
@@ -28,10 +28,10 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
-source $HOME/.config/nvim/lua/peartree-config.vim
-source $HOME/.config/nvim/lua/vim-fugative-config.vim
-source $HOME/.config/nvim/lua/nvimTree-config.vim
-source $HOME/.config/nvim/lua/vista.vim
+source $HOME/.config/nvim/lua/config/peartree-config.vim
+source $HOME/.config/nvim/lua/config/vim-fugative-config.vim
+source $HOME/.config/nvim/lua/config/nvimTree-config.vim
+source $HOME/.config/nvim/lua/config/vista.vim
 
 lua require'nvim-tree'.setup {}
 lua <<EOF
@@ -47,9 +47,9 @@ require('litee.lib').setup({
 
 require('lualine').setup()
 require("toggleterm").setup{}
-require('bufferline-config')
-require('coc-nvim-config')
-require('pear_tree')
+require('config.bufferline-config')
+-- require('coc-nvim-config') --
+require('config.pear_tree')
 require('plugins')
 EOF
 
