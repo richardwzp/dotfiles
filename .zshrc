@@ -105,6 +105,7 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 # an option from exa, installed with cargo. This replace ls
 alias ls="exa --icons"
+alias l="exa -al"
 # defined as a function
 # alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
@@ -146,7 +147,11 @@ alias splay="spotify play"
 alias spause="spotify pause"
 
 # alacritty window
+alias alacritty="/Applications/Alacritty.app/Contents/MacOS/alacritty"
 alias awind="alacritty msg create-window"
+
+# tmux stuff
+alias tt="tmux"
 
 # compiler stuff
 

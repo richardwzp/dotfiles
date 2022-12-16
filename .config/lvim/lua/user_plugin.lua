@@ -8,14 +8,33 @@ lvim.plugins = {
    config = function ()
       local sym_opts = require('config.symbol-outline-option')
       require('symbols-outline').setup { sym_opts }
-    end}
+    end},
+  {'simrat39/rust-tools.nvim',
+   requires = {{'mfussenegger/nvim-dap', opt=false}},
+   config = function ()
+      local rt = require("rust-tools")
+
+      rt.setup({
+        server = {
+          on_attach = function(_, bufnr)
+            -- Hover actions
+            vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+            -- Code action groups
+            vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+          end,
+        },
+      })
+  end
+
+  },
 }
 
 -- nvimTree
-map('n', "<leader>[",  ':NvimTreeToggle<CR>', opt)
+map('n', "\\[",  ':NvimTreeToggle<CR>', opt)
 require('config.nvim-tree')
 -- termtoggle
-map('n', "<leader>=", ':ToggleTerm<CR>', opt)
+map('n', "\\=", ':ToggleTerm<CR>', opt)
+map('n', "\\'", ':ToggleTerm direction=float<CR>', opt)
 map("t", "<Esc>", "<C-\\><C-n>", opt)
 lvim.builtin.terminal.size =
   function(term)
@@ -27,10 +46,15 @@ lvim.builtin.terminal.size =
   end
 lvim.builtin.terminal.direction = 'horizontal'
 -- symbols-outline
-map('n', "<leader>]", ":SymbolsOutline<CR>", opt)
+map('n', "\\]", ":SymbolsOutline<CR>", opt)
 
 -- require('config.lua-line').setup()
 require('config.lua-line')
 require('config.buffer-line')
 lvim.builtin.nvimtree.setup.disable_netrw=true
 lvim.builtin.nvimtree.setup.hijack_netrw = true
+-- treesitter
+lvim.builtin.treesitter.indent = { enable = true, disable = { "yaml", "python" } } -- treesitter is buggy :(
+-- this is ftpPlugin's fault. in a python file run :verbose set tabstop?
+-- vim.cmd "autocmd FileType python setlocal tabstop=4 shiftwidth=2 softtabstop=2"
+
