@@ -53,6 +53,7 @@ brew install jq
 brew install node
 brew install yarn
 brew install tmux
+brew install wget
 
 # currently using tmux plugin
 # git clone git@github.com:richardwzp/tmux-sensible.git
