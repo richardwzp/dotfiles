@@ -163,6 +163,7 @@ alias tt="tmux"
 
 # configure java 
 export JAVA_HOME=$HOME/Library/Java/JavaVirtualMachines/adopt-openjdk-14.0.2/Contents/Home
+
 export PATH=$PATH:$HOME/.local/bin
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 
@@ -189,4 +190,7 @@ alias fnd='\fd'
 
 # doom-emacs related stuff
 PATH="~/.emacs.d/bin:$PATH"
-export JAVA_HOME=$(/usr/libexec/java_home)
+# export JAVA_HOME=$(/usr/libexec/java_home)
+
+
+
