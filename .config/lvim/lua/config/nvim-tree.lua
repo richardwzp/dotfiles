@@ -25,10 +25,19 @@
     dotfiles = true,
   },
 })
-]]--
-local map = vim.keymap.set
-local opt = {noremap = true }
-map('n', "<leader>[",  ':NvimTreeToggle<CR>', opt)
+]]
+   --
+--
+
+-- map('n', "<leader>[", ':NvimTreeToggle<CR>', opt)
 -- lvim.keys.normal_mode["<leader>["] = ":NvimTreeToggle"
+
+-- nvimTree
+-- map('n', "\\[", ':NvimTreeToggle<CR>', opt)
+
+lvim.builtin.nvimtree.setup.view.side = "left"
+lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
+
+
 
 

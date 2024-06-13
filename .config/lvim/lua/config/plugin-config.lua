@@ -1,0 +1,6 @@
+require('config.lua-line')
+require('config.buffer-line')
+require('config.nvim-ufo')
+require('config.telescope')
+require('config.sidebar-toggle')
+require('config.symbol-outline-option')

@@ -12,33 +12,48 @@ an executable
 require('user_plugin')
 require('user_config')
 -- lvim.builtin.lualine.options.theme = "OceanicNext"
-lvim.colorscheme = "OceanicNext"
+lvim.colorscheme = "NightFly"
 
 -- general
-local opt = {noremap = true }
+local opt = { noremap = true }
 local map = vim.keymap.set
-map('n', "<Left>",  ':echoe "Use h"<CR>', opt)
-map('n', "<Right>", ':echoe "Use l"<CR>', opt)
-map('n', "<Up>",    ':echoe "Use k"<CR>', opt)
-map('n', "<Down>",  ':echoe "Use j"<CR>', opt)
-map('i', "<Left>",  '<ESC>:echoe "Use h"<CR>', opt)
-map('i', "<Right>", '<ESC>:echoe "Use l"<CR>', opt)
-map('i', "<Up>",    '<ESC>:echoe "Use k"<CR>', opt)
-map('i', "<Down>",  '<ESC>:echoe "Use j"<CR>', opt)
+local which_opts = {
+  mode = "n",     -- NORMAL mode
+  buffer = nil,   -- Global mappings. Specify a buffer number for buffer local mappings
+  silent = true,  -- use `silent` when creating keymaps
+  noremap = true, -- use `noremap` when creating keymaps
+  nowait = true,  -- use `nowait` when creating keymaps
+}
+
+
+-- lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+require('which-key')
+    .register({
+      ['<C-s>'] = { ":w<cr>", "save" }
+    }, which_opts)
+-- goodbye you've been good
+-- map('n', "<Left>", ':echoe "Use h"<CR>', opt)
+-- map('n', "<Right>", ':echoe "Use l"<CR>', opt)
+-- map('n', "<Up>", ':echoe "Use k"<CR>', opt)
+-- map('n', "<Down>", ':echoe "Use j"<CR>', opt)
+-- map('i', "<Left>", '<ESC>:echoe "Use h"<CR>', opt)
+-- map('i', "<Right>", '<ESC>:echoe "Use l"<CR>', opt)
+-- map('i', "<Up>", '<ESC>:echoe "Use k"<CR>', opt)
+-- map('i', "<Down>", '<ESC>:echoe "Use j"<CR>', opt)
 
 
 
 lvim.log.level = "warn"
-lvim.format_on_save.enabled = false
+-- lvim.format_on_save.enabled = false
 -- lvim.colorscheme = "lunar"
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 -- add your own keymapping
-lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
--- lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
--- lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
+
+lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
+lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
 -- unmap a default keymapping
 -- vim.keymap.del("n", "<C-Up>")
 -- override a default keymapping
@@ -67,24 +82,22 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- lvim.builtin.theme.options.style = "storm"
 
 -- Use which-key to add extra bindings with the leader-key prefix
--- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
--- lvim.builtin.which_key.mappings["t"] = {
---   name = "+Trouble",
---   r = { "<cmd>Trouble lsp_references<cr>", "References" },
---   f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
---   d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
---   q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
---   l = { "<cmd>Trouble loclist<cr>", "LocationList" },
---   w = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics" },
--- }
+lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
+lvim.builtin.which_key.mappings["t"] = {
+  name = "+Trouble",
+  r = { "<cmd>Trouble lsp_references<cr>", "References" },
+  f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
+  d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
+  q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
+  l = { "<cmd>Trouble loclist<cr>", "LocationList" },
+  w = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics" },
+}
 
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.terminal.active = true
-lvim.builtin.nvimtree.setup.view.side = "left"
-lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 
 
 -- if you don't want all the parsers change this to a table of the ones you want
@@ -108,8 +121,13 @@ lvim.builtin.treesitter.highlight.enable = true
 
 -- custom LSP settings
 require('lsp.custom_server')
+-- ts LSP settings
+require('lsp.ts_server')
+-- rust lsp settings
+require('lsp.rust_server')
 
--- generic LSP settings
+-- custom  config
+require('config.plugin-config')
 
 -- -- make sure server will always be installed even if the server is in skipped_servers list
 -- lvim.lsp.installer.setup.ensure_installed = {

@@ -14,7 +14,8 @@ local opts = {
   configs.racket = {
     default_config = opts
   }
-]]-- end
+]]
+   -- end
 
 -- require("lvim.lsp.manager").setup ("racket-langserver", opts)
 -- require("lspconfig")["racket"].setup {cmd = {"raco", "-l", "racket-langserver"} }
@@ -24,3 +25,5 @@ lspconfig.racket_langserver.setup {
   default_config = opts,
   -- capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.default()),
 }
+
+lvim.format_on_save.enabled = true;

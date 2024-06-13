@@ -90,6 +90,7 @@ HYPHEN_INSENSITIVE="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git 
 	 git-extras
+   z
 	 common-aliases
 	 pyenv
 	 macos
@@ -117,11 +118,11 @@ alias l="exa -al"
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='lvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -152,6 +153,7 @@ alias awind="alacritty msg create-window"
 
 # tmux stuff
 alias tt="tmux"
+alias tm="tmuxinator"
 
 # compiler stuff
 
@@ -192,5 +194,37 @@ alias fnd='\fd'
 PATH="~/.emacs.d/bin:$PATH"
 # export JAVA_HOME=$(/usr/libexec/java_home)
 
+# export PATH="/opt/homebrew/anaconda3/bin:$PATH"  # commented out by conda initialize
 
+# kitty stuff
+# PATH="~/kitty/kitty/launcher:$PATH"
+# export EDITOR="lvim"
+# export VISUAL="lvim"
+# export KITTY_CONFIG_DIRECTORY="~/.config/kitty"
+alias kitty-config="lvim ~/.config/kitty/kitty.conf"
+
+# tilting manager stuff: yabai and skhd
+alias tilt-start="yabai --start-service && skhd --start-service"
+alias tilt-stop="yabai --stop-service && skhd --stop-service"
+alias tilt-restart="yabai --restart-service && skhd --restart-service"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/homebrew/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/homebrew/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/opt/homebrew/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/homebrew/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+# nvm stuff
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 

@@ -19,9 +19,6 @@ source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # power 10k
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
-# install font
-brew tap homebrew/cask-fonts
-brew install --cask font-hack-nerd-font
 # install neovim
 brew install neovim
 # install better git
@@ -38,8 +35,6 @@ sh <(curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs) -y
 rustc --version
 
 # install packer
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
 # install utilities
 brew install ripgrep
@@ -59,10 +54,21 @@ brew install wget
 # git clone git@github.com:richardwzp/tmux-sensible.git
 
 # need to install make
-LV_BRANCH='release-1.2/neovim-0.8' bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh) --yes
+LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh) --yes
 
 # add alacritty
-npm i -g alacritty-themes
+# npm i -g alacritty-themes
+
+
+# font stuff
+brew install fontconfig
+git clone https://github.com/ronniedroid/getnf.git
+cd getnf
+./install.sh
+cd ..
+
+# tmux plugin manager
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 
 

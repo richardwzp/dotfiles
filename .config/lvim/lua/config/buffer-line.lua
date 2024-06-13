@@ -14,7 +14,7 @@ lvim.builtin.bufferline.options = {
       style = 'icon',
       icon = '|',
 	},
-    buffer_close_icon = '',
+    buffer_close_icon = '',
     modified_icon = '●',
     close_icon = '',
     left_trunc_marker = '',
@@ -60,9 +60,22 @@ lvim.builtin.bufferline.options = {
     end,
     offsets = {{filetype = "NvimTree", text = "File Explorer" , text_align = "left" }},
     color_icons = true , -- whether or not to add the filetype icon highlights
-    show_buffer_icons = true , -- disable filetype icons for buffers
+    -- @deprecated 
+    -- show_buffer_icons = true , -- disable filetype icons for buffers
     show_buffer_close_icons = true ,
-    show_buffer_default_icon = true , -- whether or not an unrecognised filetype should show a default icon
+    -- show_buffer_default_icon = true , -- whether or not an unrecognised filetype should show a default icon
+    get_element_icon = function(element)
+      -- element consists of {filetype: string, path: string, extension: string, directory: string}
+      -- This can be used to change how bufferline fetches the icon
+      -- for an element e.g. a buffer or a tab.
+      -- e.g.
+      local icon, hl = require('nvim-web-devicons').get_icon_by_filetype(element.filetype, { default = false })
+      return icon, hl
+      -- or
+      -- local custom_map = {my_thing_ft: {icon = "my_thing_icon", hl}}
+      -- return custom_map[element.filetype]
+    end,
+
     show_close_icon = true ,
     show_tab_indicators = true ,
     persist_buffer_sort = false, -- whether or not custom sorted buffers should persist
