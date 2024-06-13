@@ -65,9 +65,26 @@ lvim.plugins = {
   {
     'windwp/nvim-ts-autotag',
     enable = true,
-    config = function()
-      require('nvim-ts-autotag').setup()
-    end
+    -- ** For some reason, adding config causes "K" completion
+    -- to call the treesitter setup which will be deprecated.
+    -- config = function()
+    --   require('nvim-ts-autotag').setup({
+    --     opts = {
+    --       -- Defaults
+    --       enable_close = true,    -- Auto close tags
+    --       enable_rename = true,   -- Auto rename pairs of tags
+    --       enable_close_on_slash = false -- Auto close on trailing </
+    --     },
+    --     -- Also override individual filetype configs, these take priority.
+    --     -- Empty by default, useful if one of the "opts" global settings
+    --     -- doesn't work well in a specific filetype
+    --     per_filetype = {
+    --       ["html"] = {
+    --         enable_close = false
+    --       }
+    --     }
+    --   })
+    -- end
   },
   {
     'lervag/vimtex',
@@ -81,13 +98,14 @@ lvim.plugins = {
     init = function() vim.g.mkdp_filetypes = { "markdown" } end,
     ft = { "markdown" },
   },
-  {
-    "danymat/neogen",
-    dependencies = "nvim-treesitter/nvim-treesitter",
-    config = true,
-    -- Uncomment next line if you want to follow only stable versions
-    -- version = "*"
-  },
+  -- {
+  --   "danymat/neogen",
+  --   dependencies = "nvim-treesitter/nvim-treesitter",
+  --   config = true,
+  --   enable = false,
+  --   -- Uncomment next line if you want to follow only stable versions
+  --   -- version = "*"
+  -- },
   -- python stuff
   "ChristianChiarulli/swenv.nvim",
   "stevearc/dressing.nvim",
