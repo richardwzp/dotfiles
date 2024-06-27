@@ -4,12 +4,12 @@ vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 
 local which_opts = {
-    mode = "n", -- NORMAL mode
-    prefix = "<leader>",
-    buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-    silent = true, -- use `silent` when creating keymaps
-    noremap = true, -- use `noremap` when creating keymaps
-    nowait = true, -- use `nowait` when creating keymaps
+  mode = "n",       -- NORMAL mode
+  prefix = "<leader>",
+  buffer = nil,     -- Global mappings. Specify a buffer number for buffer local mappings
+  silent = true,    -- use `silent` when creating keymaps
+  noremap = true,   -- use `noremap` when creating keymaps
+  nowait = true,    -- use `nowait` when creating keymaps
 }
 
 -- map('n', 'm', require('ufo').closeAllFolds, opt)
@@ -22,15 +22,15 @@ require('which-key').register({
     },
     i = { "zc", "collapse one block" },
     o = { "zo", "expand one block" },
-    k = {function()
-          local winid = require('ufo').peekFoldedLinesUnderCursor()
-          if not winid then
-              -- choose one of coc.nvim and nvim lsp
-              vim.lsp.buf.hover()
-            end
-         end,
-        "show preview for fold"
-        },
+    k = { function()
+      local winid = require('ufo').peekFoldedLinesUnderCursor()
+      if not winid then
+        -- choose one of coc.nvim and nvim lsp
+        vim.lsp.buf.hover()
+      end
+    end,
+      "show preview for fold"
+    },
   }
 }, which_opts)
 
@@ -56,10 +56,9 @@ require('ufo').setup({
   end
 })
 vim.keymap.set('n', '`k', function()
-    local winid = require('ufo').peekFoldedLinesUnderCursor()
-    if not winid then
-        -- choose one of coc.nvim and nvim lsp
-        vim.lsp.buf.hover()
-    end
+  local winid = require('ufo').peekFoldedLinesUnderCursor()
+  if not winid then
+    -- choose one of coc.nvim and nvim lsp
+    vim.lsp.buf.hover()
+  end
 end)
-

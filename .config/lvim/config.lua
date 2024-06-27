@@ -8,6 +8,9 @@ an executable
 ]]
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
 
+-- fix which key
+
+
 -- user plugins
 require('user_plugin')
 require('user_config')

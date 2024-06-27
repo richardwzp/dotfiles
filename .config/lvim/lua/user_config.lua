@@ -8,6 +8,10 @@ vim.cmd "set softtabstop=2"
 -- well, it's a neovim thing? https://github.com/LunarVim/LunarVim/issues/1364
 -- https://www.reddit.com/r/lunarvim/comments/sgcptg/lunarvim_keeps_indenting_4_spaces_no_matter_my/
 
+-- lvim.builtin.which_key.setup.plugins.presets.z = true
+for pre, _ in pairs(lvim.builtin.which_key.setup.plugins.presets) do
+  lvim.builtin.which_key.setup.plugins.presets[pre] = true
+end
 
 -- require('config.lua-line').setup()
 lvim.builtin.nvimtree.setup.disable_netrw = true
@@ -24,3 +28,5 @@ lvim.builtin.treesitter.autotag.enable = true
 
 lvim.keys.normal_mode["<C-[>"] = "zh"
 lvim.keys.normal_mode["<C-]>"] = "zl"
+
+-- lvim.builtin.which_key:

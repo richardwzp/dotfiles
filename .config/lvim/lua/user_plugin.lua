@@ -16,6 +16,7 @@ lvim.plugins = {
   },
   {
     'simrat39/rust-tools.nvim',
+    -- something wrong here
     dependencies = { { 'mfussenegger/nvim-dap', opt = false } },
     -- config = function()
     --   local rt = require("rust-tools")
@@ -35,7 +36,7 @@ lvim.plugins = {
   },
   -- {
   --   'andweeb/presence.nvim',
-  --   enable = false,
+  --   enabled = false,
   --   config = function()
   --     require("presence"):setup({
   --       -- General options
@@ -64,7 +65,7 @@ lvim.plugins = {
   -- },
   {
     'windwp/nvim-ts-autotag',
-    enable = true,
+    enabled = true,
     -- ** For some reason, adding config causes "K" completion
     -- to call the treesitter setup which will be deprecated.
     -- config = function()
@@ -88,7 +89,7 @@ lvim.plugins = {
   },
   {
     'lervag/vimtex',
-    enable = false,
+    enabled = false,
     config = function()
     end
   },
@@ -102,7 +103,7 @@ lvim.plugins = {
   --   "danymat/neogen",
   --   dependencies = "nvim-treesitter/nvim-treesitter",
   --   config = true,
-  --   enable = false,
+  --   enabled = false,
   --   -- Uncomment next line if you want to follow only stable versions
   --   -- version = "*"
   -- },
@@ -122,7 +123,7 @@ lvim.plugins = {
   'fladson/vim-kitty',
   -- {
   --   "pmizio/typescript-tools.nvim",
-  --   enable = false,
+  --   enabled = false,
   --   dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
   --   opts = {},
   -- }
