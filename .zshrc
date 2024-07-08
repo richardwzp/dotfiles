@@ -104,9 +104,9 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 # ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
 
 
-# an option from exa, installed with cargo. This replace ls
-alias ls="exa --icons"
-alias l="exa -al"
+# an option from lsd, installed with cargo. This replace ls
+alias ls="lsd --icons"
+alias l="lsd -al"
 # defined as a function
 # alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 

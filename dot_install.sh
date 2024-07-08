@@ -42,7 +42,7 @@ brew install fd
 
 brew install jesseduffield/lazygit/lazygit
 brew install yarn
-brew install exa
+brew install lsd
 brew install yq
 brew install jq
 brew install node
