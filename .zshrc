@@ -105,7 +105,7 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 
 # an option from lsd, installed with cargo. This replace ls
-alias ls="lsd --icons"
+alias ls="lsd --icon always"
 alias l="lsd -al"
 # defined as a function
 # alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
