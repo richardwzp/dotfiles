@@ -12,7 +12,8 @@ echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # zsh syntaxhighlighting
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+mkdir -p terminal_cosmetic
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ./terminal_cosmetic
 echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
 source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 

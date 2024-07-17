@@ -15,7 +15,7 @@ an executable
 require('user_plugin')
 require('user_config')
 -- lvim.builtin.lualine.options.theme = "OceanicNext"
-lvim.colorscheme = "NightFly"
+lvim.colorscheme = "nightfly"
 
 -- general
 local opt = { noremap = true }

@@ -137,7 +137,7 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias neulogin="ssh wzprichardwzp@login.ccs.neu.edu"
 alias warheadlogin="ssh warhead"
-source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/terminal_cosmetic/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # export PATH="/usr/local/opt/python@3.9/bin:$PATH"
 # make sure python can be found 
 export PATH="/usr/local/opt/python@3.10/bin:$PATH"
@@ -228,3 +228,7 @@ unset __conda_setup
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
+source /home/wzp/terminal_cosmetic//zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# arch specific
+alias pacr="sudo pacman -Rnsu"
