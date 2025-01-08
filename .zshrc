@@ -227,7 +227,7 @@ unset __conda_setup
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-source /home/wzp/terminal_cosmetic/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/terminal_cosmetic/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # arch specific
 alias pacr="sudo pacman -Rnsu"
