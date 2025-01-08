@@ -191,7 +191,7 @@ alias fnd='\fd'
 
 # doom-emacs related stuff
 PATH="~/.emacs.d/bin:$PATH"
-export JAVA_HOME=$(/usr/libexec/java_home)
+export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::")
 
 # export PATH="/opt/homebrew/anaconda3/bin:$PATH"  # commented out by conda initialize
 
